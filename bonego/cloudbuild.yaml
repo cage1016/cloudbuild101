@@ -5,6 +5,7 @@ steps:
       - PROJECT_ROOT=github.com/cage1016/bonego
     args:
       - install
+    dir: bonego
   - id: go test
     name: gcr.io/cloud-builders/go
     env:
@@ -12,6 +13,7 @@ steps:
     args:
       - test
       - '-v'
+    dir: bonego  
   - id: go install
     name: gcr.io/cloud-builders/go
     args:
@@ -26,6 +28,7 @@ steps:
       - PROJECT_ROOT=github.com/cage1016/bonego
       - CGO_ENABLED=0
       - GOOS=linux
+    dir: bonego
   - id: create dokcer image
     name: gcr.io/cloud-builders/docker
     args:
@@ -33,5 +36,6 @@ steps:
       - '-t'
       - gcr.io/$PROJECT_ID/bonego
       - .
+    dir: bonego  
 images:
   - gcr.io/$PROJECT_ID/bonego
