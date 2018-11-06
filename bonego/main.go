@@ -20,5 +20,5 @@ func PingHandler(rw http.ResponseWriter, req *http.Request) {
 }
 
 func RootHandler(rw http.ResponseWriter, req *http.Request) {
-	rw.Write([]byte("helle world"))
+	rw.Write([]byte("hello world"))
 }
